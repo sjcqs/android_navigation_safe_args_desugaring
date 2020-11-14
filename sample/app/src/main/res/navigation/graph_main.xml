@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_main"
+    app:startDestination="@id/mainFragment"
+    >
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="fr.sjcqs.navigationsafeargsjdk8.ui.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/main_fragment"
+        >
+        <action
+            android:id="@+id/action_mainFragment_to_timerFragment"
+            app:destination="@id/timerFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="fr.sjcqs.navigationsafeargsjdk8.ui.main.TimerFragment"
+        android:label="TimerFragment"
+        tools:layout="@layout/timer_fragment"
+        >
+        <!-- Application crash on Android < 26 (not supporting JDK8 APIs)-->
+        <argument
+            android:name="duration"
+            app:argType="java.time.Duration"
+            />
+    </fragment>
+</navigation>
